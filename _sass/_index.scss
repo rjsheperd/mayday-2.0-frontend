@@ -1,114 +1,45 @@
 #index {
-  font-weight: 300;
   padding-bottom:290px;/* hack for now MARIO TODO*/
-
-  h1{
-    margin-bottom:10px;
-  }
-
-  .action-panel{
-    text-align:center;
-    border-radius:5px;
-    border: 1px solid $navy-blue-color;
-    border-top: 6px solid $navy-blue-color;
-    padding:0;
-
-    .panel-icon{
-      padding:0;
-      background: $navy-blue-color;
-      border-bottom:5px solid $navy-blue-light-color;
-      text-align:center;
-      height:20px;
-
-      .img-responsive{
-        position:absolute;
-        top:-12px;
-        height:45px;
-        left:50%;
-        margin-left:-20px;
-        z-index:100;
-      }
-      .fade-line{
-        position: absolute;
-        top: 6px;
-        width: 100px;
-        left: 50%;
-        margin-left: -50px;
-        display: block;
-        border: none;
-        color: white;
-        height: 2px;
-        color: white;
-        height: 2px;
-        background: black;
-        background: -webkit-radial-gradient(circle, #ffffff, $navy-blue-color);
-        background: radial-gradient(circle, #ffffff, $navy-blue-color);
-      }
+  .spacer-opening{
+    @include phone{
+      padding-top:30px;
+      padding-bottom:15px;
     }
-
-
-    h2{
-      margin-top:0;
-      color: $navy-blue-color;
-      font-weight:400;
-      font-size:26px;
-
-      strong{
-        font-size:50px;
-      }
-    }
-
-    p{
-      font-size:18px;
-      font-weight:400;
-    }
-
-    .img-capitol{
-      width:50%;
-      margin:0 auto;
-    }
-
-    form{
-      button{
-        width: 100%;
-        color: $background-color;
-        font-size: 30px;
-        font-weight:400;
-        padding: 20px 0px;
-        border: none;
-        border-radius: 5px;
-        background-color: $dark-red-color;
-        text-transform:uppercase;
-      }
+    @include tablet{
+      padding-top:30px;
+      padding-bottom:15px;
     }
   }
-
 
   .homepage-panel{
     position: relative;
     overflow: hidden;
     padding-top:50px;
     padding-bottom:50px;
+    font-weight: 300;
 
     .container{
       padding-top:0;
       padding-bottom:0;
     }
 
-    h2 {
-      font-size: 48px;
-      margin-top:0;
-    }
+    .homepage-panel-body{
 
-    .panel-headline-small {
-      margin-top: 30px;
-      font-size: 32px;
-    }
+      h2 {
+        font-size: 48px;
+        margin-top:0;
+      }
 
-    p {
-      margin-top: 30px;
-      font-size: 24px;
-      line-height:30px;
+      .panel-headline-small {
+        margin-top: 30px;
+        font-size: 32px;
+      }
+
+      p {
+        margin-top: 30px;
+        font-size: 24px;
+        line-height:30px;
+      }
     }
 
     &.dark {
@@ -289,6 +220,10 @@
 
       }
     }
+
+    &.capitol-building{
+      background: #fff url(/images/capitol_building.png) right bottom no-repeat;
+    }
   }
 
   .bottom-form-wrap {
@@ -298,114 +233,9 @@
     .col-md-6.center-block{
       float:none;
 
-      .box-inner.top-right-box{
-        background:#fff;
-      }
-
-      h2{
-        font-size:36px;
-        font-weight:400;
-      }
-
-      p{
-        font-size: 18px;
-
-        &.rally{
-          font-size:24px;
-        }
-      }
-
       form{
         padding-bottom:0;
       }
-
-      button{
-        font-weight:400;
-        text-transform:uppercase;
-      }
     }
-  }
-}
-
-/*
-.bottom-join-form {
-  position: relative;
-  background-color: #ffffff;
-  display: block;
-  height: 300px;
-  width: 600px;
-  margin: 80px auto;
-  z-index: 999;
-
-  border: 1px solid $navy-blue-color;
-  .box-title {
-    height: 70px;
-    padding: 18px 0px 0px 30px;
-    color: #ffffff;
-    background-color: $navy-blue-light-color;
-    font-size: 27px;
-    border-bottom: 10px solid $navy-blue-color;
-  }
-  .rally {
-    margin-top: 12px;
-    font-size: 20px;
-    line-height: 24px;
-    padding: 0px 22px;
-  }
-  form {
-    margin: 15px 20px 0px 20px;
-    font-size: 22px;
-    input {
-      border: 2px solid $navy-blue-color;
-      padding: 8px 0px 8px 12px;
-      border-radius: 4px;
-      margin-bottom: 15px;
-      &[name="email"] {
-        width: 62%;
-        margin-right: 5px;
-      }
-      &[name="zip"] {
-        width: 36%;
-      }
-    }
-    button {
-      width: 100%;
-      color: #ffffff;
-      font-size: 28px;
-      padding: 20px 0px;
-      border: none;
-      border-radius: 5px;
-      background-color: $dark-red-color;
-    }
-  }
-}
-*/
-#onboarding-modal {
-  .modal-body {
-    padding: 0;
-  }
-
-  .modal-dialog {
-    height: 100%;
-    margin: 0 auto;
-  }
-
-  .modal-content {
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-    height: 100%;
-  }
-
-  .modal-body {
-    height: 100%;
-  }
-
-  #onboarding-overlay {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    height: 100%;
-    width: 100%;
   }
 }

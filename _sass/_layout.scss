@@ -6,6 +6,9 @@
     background-color: $navy-blue-color;
     height: 80px;
     position: relative;
+    @include phone{
+      height: 55px;
+    }
     .container {
       height: 100%;
       position: relative;
@@ -34,6 +37,12 @@
 
       .logo {
         width: 280px;
+        margin: 0 auto;
+        @include phone {
+          width: 73%;
+          max-width: 300px;
+          margin: 0 2%;
+        }
         @include tablet {
           width: 380px;
         }
@@ -43,10 +52,9 @@
         @include large-desktop {
           width: 434px;
         }
-        margin: 0 auto;
         img {
           position: relative;
-          z-index: 99;
+          z-index: 200;
         }
       }
       .search-section-right {
@@ -61,7 +69,7 @@
           color: $navy-blue-light-color;
           ::-webkit-input-placeholder { /* WebKit browsers */
             color: $navy-blue-light-color;
-            font-weight: bold;
+            font-weight: 400;
           }
           :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
             color: $navy-blue-light-color;
@@ -166,17 +174,13 @@
     .middle-dot {
       color: rgba(255,255,255, .25);
       padding: 4px;
-      font-weight: bold;
+      font-weight: 400;
     }
     .left-links {
       float: left;
       display: inline-block;
       margin-left: -10px;
       width: 40%;
-      a {
-        border: 1px solid rgb(91,121,150);
-        border-radius: 5px;
-      }
     }
     .right-links {
       float: right;
@@ -184,6 +188,11 @@
       margin-right: -20px;
       display: inline-block;
       width: 40%;
+      a {
+        @include tab-button($dark-red-color);
+        border: 1px solid rgb(91,121,150);
+        padding: 6px 20px;
+      }
     }
   }
 
@@ -194,6 +203,7 @@
     height: 20px;
     text-align: center;
     background-color: $navy-blue-light-color;
+    margin-bottom:25px;
     .triangle-up {
       position: absolute;
       top: 0;
@@ -214,45 +224,7 @@
     }
   }
 }
-// customize bootstrap navbar
-/* navbar */
-.navbar-default {
-    background-color: $navy-blue-light-color;
-    border-color: $navy-blue-color;
-}
-/* title */
-.navbar-default .navbar-brand {
-    color: #e4e4e4;
-}
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #007acf;
-}
-/* link */
-.navbar-default .navbar-nav > li > a {
-    color: #e4e4e4;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #007acf;
-}
-.navbar-default .navbar-nav > .active > a, 
-.navbar-default .navbar-nav > .active > a:hover, 
-.navbar-default .navbar-nav > .active > a:focus {
-    color: #555;
-    background-color: #E7E7E7;
-}
-.navbar-default .navbar-nav > .open > a, 
-.navbar-default .navbar-nav > .open > a:hover, 
-.navbar-default .navbar-nav > .open > a:focus {
-    color: #555;
-    background-color: #D5D5D5;
-}
-/* caret */
-.navbar-default .navbar-nav > .dropdown > a .caret {
-    border-top-color: #e4e4e4;
-    border-bottom-color: #e4e4e4;
-}
+
 
 /**
  * Globals
@@ -305,6 +277,9 @@ a:link, a:visited, a:active {
       a {
         -webkit-font-smoothing: antialiased;
         padding: 10px;
+        @include small-desktop {
+          padding-right: 0;
+        }
         span {
           margin: 2px 2px;
           font-size: 26px;
@@ -333,7 +308,7 @@ a:link, a:visited, a:active {
       // }
 
       @include small-desktop {
-        width: 230px;
+        width: 100%;
       }
 
       @include large-desktop {
@@ -342,7 +317,7 @@ a:link, a:visited, a:active {
       color: $navy-blue-light-color;
       ::-webkit-input-placeholder { /* WebKit browsers */
         color: $navy-blue-light-color;
-        font-weight: bold;
+        font-weight: 400;
       }
       :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
         color: $navy-blue-light-color;
@@ -409,7 +384,7 @@ a:link, a:visited, a:active {
       background: radial-gradient(circle, rgba(255,255,255,.6), #0d3960);
     }
     .name {
-      font-weight: bold;
+      font-weight: 400;
       font-size: 38px;
     }
     .disclaimer-box {
@@ -449,9 +424,8 @@ a:link, a:visited, a:active {
       margin-top: 20px;
 
       a {
-        font-size: 20px;
-        border: 1px solid #e6e6e6;
-        border-radius: 5px;
+        @include tab-button($dark-red-color);
+        border: 1px solid rgb(91,121,150);
         padding: 6px 20px;
       }
     }
@@ -459,6 +433,166 @@ a:link, a:visited, a:active {
 }
 
 
+
+/////////////////////////////////////////////////////////////////////////
+/**
+ * Mobile menu
+ */
+// customize bootstrap navbar overriden bootstrap css
+/* navbar */
+/////////////////////////////////////////////////////////////////////////
+.nav {
+    padding-left: 30px;
+    margin-bottom: 1px;
+    list-style: none;
+    font-weight: 400;
+    font-size: 20px;
+}
+///////////this one is important 
+.container-fluid>.navbar-collapse,.container-fluid>.navbar-header,.container>.navbar-collapse,.container>.navbar-header {
+    margin-right: -6%;
+    margin-left: -6%
+}
+.navbar-nav { //important to the placement of the nav
+    margin: 33.5px -15px
+}
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px
+}
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0
+}
+.navbar-fixed-bottom .navbar-nav>li>.dropdown-menu {
+    margin-bottom: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0
+}
+.navbar-default .navbar-brand {
+    color: #777
+}
+.navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>li>a:hover { //afects hover states
+    color: #333;
+    background-color: transparent
+}
+.navbar-default .navbar-toggle:focus,.navbar-default .navbar-toggle:hover { // affects toggeld
+    background-color: #ddd
+}
+.navbar {
+  position: relative;
+  min-height: 10px;//right
+  margin-bottom: 20px;
+}
+.navbar-toggle {
+  font-size: 14px;
+  position: relative;
+  float: right;
+  padding: 4px 8px;
+  margin-top: -49px;
+  margin-right: 5%;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  z-index:100;
+}
+.navbar-default {
+  z-index: 50;
+  background-color: #e4e4e4;
+  border-style: none none solid none;
+  border-width:3px;
+  border-color:$dark-red-color;
+}
+/* title */
+.navbar-default .navbar-brand {
+    color: #e4e4e4;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #007acf;
+}
+/* link color-text*/
+.navbar-default .navbar-nav > li > a {
+    color: $navy-blue-color;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #007acf;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E7E7E7;
+}
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #D5D5D5;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: #e4e4e4;
+    border-bottom-color: $dark-red-color;
+}
+.navbar-default .navbar-nav>.disabled>a,.navbar-default .navbar-nav>.disabled>a:focus,.navbar-default .navbar-nav>.disabled>a:hover {
+    color: #ccc;
+    background-color: transparent
+}
+
+.navbar-default .navbar-toggle {
+    background-color: #ddd;
+    border-color: #ddd;
+}
+
+
+.gap-filler {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  // margin-top: -px;
+  z-index: 51;
+  top:79;
+  background-color: $navy-blue-light-color;
+  border-bottom:2px solid;
+  border-color: rgb(247, 247, 247)
+}
+.menu-section-center {
+  font-size: 18px;
+  // width:80%;
+  height:50px;
+  text-align:center;
+  .menu-div-center {
+    font-size: 2.5rem;
+    display:inline-block;
+    color:white;
+    padding: 0 5vw;
+    a:link, a:visited, a:active{
+      color: $navy-blue-color;
+    }
+    a:hover {
+        color: #007acf;
+        text-decoration: none;
+    }
+  }
+}
+.menu-stars{
+  color: $dark-red-color;
+}
+.nav-spacer{
+  opacity: 0;
+  line-height: .1px;
+  margin:1px;
+  padding:0;
+
+}
 
 
 /**
@@ -468,6 +602,7 @@ a:link, a:visited, a:active {
   padding: $spacing-unit 0;
   line-height: $page-content-line-height;
   min-height: 100%;
+  letter-spacing: .1px;
   height: auto !important;
   height: 100%;
   margin: 0 auto -300px;
@@ -506,6 +641,53 @@ a:link, a:visited, a:active {
 .post-link {
   display: block;
   font-size: 24px;
+}
+
+
+/**
+ * Columns of same height styles
+ */
+
+.row-full-height {
+  height: 100%;
+}
+.col-full-height {
+  height: 100%;
+  vertical-align: top;
+
+  .panel{
+    height: 100%;
+    display: inline-block;
+  }
+}
+.row-same-height {
+  display: table;
+  width: 100%;
+  /* fix overflow */
+  table-layout: fixed;
+}
+.col-xs-height {
+  display: table-cell;
+  float: none !important;
+}
+
+@media (min-width: 768px) {
+  .col-sm-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-height {
+    display: table-cell;
+    float: none !important;
+  }
 }
 
 
@@ -572,7 +754,7 @@ a:link, a:visited, a:active {
       display: inline-block;
       list-style-type: none;
       font-size: 200%;
-      font-weight: 500;
+      font-weight: 400;
       color: #0c3962;
       text-align: center;
       width: 155px;
@@ -612,7 +794,7 @@ a:link, a:visited, a:active {
 
       h3 {
         font-size: 175%;
-        font-weight: 500;
+        font-weight: 400;
         text-align: left;
       }
 

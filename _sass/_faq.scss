@@ -50,7 +50,8 @@
   }
 }
 .faq-content p {
-  padding-top: 7px;
+  font-size: 17px;
+  padding-top: 8px;
   padding-bottom: 0;
   margin-bottom: 7px;
 
@@ -63,13 +64,14 @@
   }
 
   @include phone {
-    padding-top: 1rem;
+    line-height: 140%;
+    padding-top: 0.5rem;
 
   }
 }
 .faq-letter{
   color: $dark-red-color;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 /** 
@@ -89,5 +91,9 @@
     background-color: $grey-color-light;
     border-color: $grey-color-light;
   }
+}
+.hang-line{
+  text-indent: -0.9em;
+  margin-left: 0.9em;
 }
 
